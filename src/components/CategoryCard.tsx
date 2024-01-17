@@ -15,7 +15,7 @@ const CategoryCard: FC<categoryCardProps> = ({ image, title }) => {
         height={400}
         width={350}
         src={`/categories/${image}`}
-        objectFit="cover"
+        style={{ objectFit: "cover" }}
         alt="fashion"
       />
       <CardFooter className=" absolute bottom-2 justify-center">

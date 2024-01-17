@@ -5,41 +5,44 @@ import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { GoStarFill } from "react-icons/go";
 import { SlHandbag } from "react-icons/sl";
+import ProductPageInfo from "./ProductPageInfo";
 
 const SingleProductPage = () => {
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>("");
   return (
     <div className="max-w-[1300px] mx-auto px-[25px] my-[20px]">
-      <Breadcrumbs size="lg" className="mb-[20px]">
-        <BreadcrumbItem>Shop</BreadcrumbItem>
-        <BreadcrumbItem>Women</BreadcrumbItem>
-        <BreadcrumbItem>Top</BreadcrumbItem>
-      </Breadcrumbs>
-      <div className="grid grid-cols-1  md:grid-cols-2">
+      <div className="flex flex-row max-lg:flex-wrap max-lg:justify-center">
         <div>
-          <div className="max-w-[600px] w-full min-h-[500px] h-full relative">
+          <Breadcrumbs size="lg" className="mb-[20px]">
+            <BreadcrumbItem>Shop</BreadcrumbItem>
+            <BreadcrumbItem>Women</BreadcrumbItem>
+            <BreadcrumbItem>Top</BreadcrumbItem>
+          </Breadcrumbs>
+          <div className="">
             <Image
-              fill
-              src={`/products/product.jpg`}
-              className="object-cover object-center "
+              height={600}
+              width={600}
+              src={`/products/young-pretty-woman-black-hat-beige-coat-walking-by-mall.jpg`}
+              className="object-cover object-top aspect-square pointer-events-none"
               alt="fashion"
             />
           </div>
           <div className="mt-4 flex flex-row justify-between max-w-[600px]  gap-4">
             {[0, 1, 2, 3].map((item) => (
-              <div key={item} className="w-[140px] h-[100px] relative">
+              <div key={item}>
                 <Image
-                  fill
-                  src={`/products/3.jpg`}
-                  className="object-cover object-center "
+                  height={138}
+                  width={138}
+                  src={`/products/young-pretty-woman-black-hat-beige-coat-walking-by-mall.jpg`}
+                  className="object-cover object-top aspect-square pointer-events-none"
                   alt="fashion"
                 />
               </div>
             ))}
           </div>
         </div>
-        <div className="p-5">
+        <div className="max-lg:py-4 lg:p-10 max-w-[600px] w-full mt-[11px] ">
           <h1
             style={{ lineHeight: "140%" }}
             className="text-4xl font-semibold text-[#3C4242] max-w-sm"
@@ -68,7 +71,7 @@ const SingleProductPage = () => {
                   onClick={() => setSelectedSize(item)}
                   className={`border-[1.5px] border-[#BEBCBD] rounded-[12px] h-[38px] w-[38px]  ${
                     selectedSize === item &&
-                    "bg-[#3C4242] border-[#3C4242] animate-appearance-in transition-colors duration-500 text-white "
+                    "bg-black border-black animate-appearance-in transition-colors duration-500 text-white "
                   }`}
                   key={Math.random()}
                 >

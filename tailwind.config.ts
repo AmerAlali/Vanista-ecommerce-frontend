@@ -13,6 +13,9 @@ const config: Config = {
       maxWidth: {
         layout: "1536px",
       },
+      colors: {
+        primary: "black",
+      },
     },
   },
   plugins: [nextui()],

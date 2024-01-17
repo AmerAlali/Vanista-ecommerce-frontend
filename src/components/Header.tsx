@@ -37,9 +37,17 @@ const Header = () => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand className=" overflow-hidden">
-          <Link href="/">
-            <Image src={"/logo.png"} alt="Vanista" height={48.05} width={150} />
+        <NavbarBrand>
+          <Link href="/" className="w-auto h-auto ">
+            <Image
+              priority
+              fetchPriority="high"
+              src={"/logo.png"}
+              alt="Vanista"
+              className="aspect-[3/1]"
+              height={48.05}
+              width={150}
+            />
           </Link>
         </NavbarBrand>
       </NavbarContent>

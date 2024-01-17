@@ -36,15 +36,20 @@ const ProductCard: FC<ProductCardProps> = ({
       shadow="none"
       isPressable
     >
-      <CardBody className="overflow-hidden">
-        <div className="w-[300px] h-[300px]">
-          <Image
-            fill
-            src={`/products/${image}`}
-            className="object-cover object-center "
-            alt="fashion"
-          />
-        </div>
+      <CardBody className="overflow-hidden p-0">
+        <Image
+          height={349}
+          width={349}
+          priority
+          fetchPriority="high"
+          src={`/products/${image}`}
+          style={{
+            aspectRatio: 1 / 1,
+            objectFit: "cover",
+            objectPosition: "top",
+          }}
+          alt="fashion"
+        />
         <AnimatePresence>
           {isCardHoverd && (
             <motion.div
