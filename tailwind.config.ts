@@ -16,6 +16,9 @@ const config: Config = {
       colors: {
         primary: "black",
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
     },
   },
   plugins: [nextui()],

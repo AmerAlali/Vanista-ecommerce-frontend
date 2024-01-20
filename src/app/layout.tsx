@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
-import Layout from "@/components/Layout";
+import { getServerSession } from "next-auth";
+import { options } from "@/lib/authOptions";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,14 +14,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  authModal,
 }: {
   children: React.ReactNode;
+  authModal: React.ReactNode;
 }) {
+  const session = getServerSession(options);
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          <Layout>{children}</Layout>
+        <Providers session={session}>
+          {children}
+          {authModal}
         </Providers>
       </body>
     </html>

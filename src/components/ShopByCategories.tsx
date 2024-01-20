@@ -40,7 +40,7 @@ const ShopByCategories = () => {
       </div>
       <Swiper
         onSwiper={setSwiperRef}
-        slidesPerView={1}
+        slidesPerView={4}
         centeredSlides={true}
         breakpoints={{
           300: {

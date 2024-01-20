@@ -14,9 +14,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { SlHandbag, SlHeart } from "react-icons/sl";
 import { FiSearch } from "react-icons/fi";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data } = useSession();
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -27,7 +29,7 @@ const Header = () => {
     "My Settings",
     "Team Settings",
     "Help & Feedback",
-    "Log Out",
+    "signin",
   ];
 
   return (
@@ -44,7 +46,6 @@ const Header = () => {
               fetchPriority="high"
               src={"/logo.png"}
               alt="Vanista"
-              className="aspect-[3/1]"
               height={48.05}
               width={150}
             />
@@ -86,11 +87,15 @@ const Header = () => {
           </Link>
         </NavbarItem>
         <NavbarItem className="max-sm:hidden">
-          <Link href="#">
-            <Button className="bg-black" radius="none" size="lg">
-              <p className="text-white text-sm">Sign In</p>
-            </Button>
-          </Link>
+          <Button
+            as={Link}
+            href="/signin"
+            className="bg-black"
+            radius="none"
+            size="lg"
+          >
+            <p className="text-white text-sm">Sign In</p>
+          </Button>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
@@ -105,7 +110,7 @@ const Header = () => {
                   : "foreground"
               }
               className="w-full"
-              href="#"
+              href={`/${item}`}
             >
               {item}
             </Link>
