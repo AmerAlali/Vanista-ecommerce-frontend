@@ -8,7 +8,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <ShopByCategories />
+      <section className="max-w-layout mx-auto px-layout">
+        <ShopByCategories />
+      </section>
       <OurBestSellerList />
     </main>
   );

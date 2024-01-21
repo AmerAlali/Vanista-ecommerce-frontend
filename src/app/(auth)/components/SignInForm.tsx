@@ -35,8 +35,9 @@ const SignInForm = () => {
       email,
       password,
       redirect: false,
-    }).then((res) => {
+    }).then((res: any) => {
       if (res?.error != null) {
+        console.log(res);
         setError(res.error);
       } else {
         router.push("/");
@@ -92,6 +93,7 @@ const SignInForm = () => {
       >
         Sign in
       </Button>
+      {error && <p>{error}</p>}
       <div className="flex flex-row justify-center items-center">
         <div className="h-[2px] w-full bg-gray-100" />
         <div className="mx-4">OR</div>
@@ -113,7 +115,6 @@ const SignInForm = () => {
           Don’t have an account?
         </p>
         <NextUiLink
-          as={Link}
           className="text-[16px] text-[#3C4242] font-normal"
           href="/signup"
         >

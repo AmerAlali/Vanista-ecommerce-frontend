@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import React, { FC, useState } from "react";
-import { SlBag, SlEye, SlHandbag, SlHeart } from "react-icons/sl";
+import { SlEye, SlHandbag, SlHeart } from "react-icons/sl";
 
 type ProductCardProps = {
   image: string;
@@ -34,20 +34,18 @@ const ProductCard: FC<ProductCardProps> = ({
       onMouseLeave={() => setIsCardHoverd(false)}
       radius="lg"
       shadow="none"
+      className=" border-none"
       isPressable
     >
-      <CardBody className="overflow-hidden p-0">
+      <CardBody className="overflow-hidden p-0 ">
         <Image
-          height={349}
-          width={349}
+          height={0}
+          width={0}
           priority
           fetchPriority="high"
           src={`/products/${image}`}
-          style={{
-            aspectRatio: 1 / 1,
-            objectFit: "cover",
-            objectPosition: "top",
-          }}
+          sizes={"100vw"}
+          className=" aspect-square object-cover object-center max-h-[400px] max-w-full h-full w-full"
           alt="fashion"
         />
         <AnimatePresence>
@@ -69,6 +67,8 @@ const ProductCard: FC<ProductCardProps> = ({
                     <SlHeart size={20} />
                   </Button>
                   <Button
+                    as={Link}
+                    href={`/shop/${title.replaceAll(" ", "-").toLowerCase()}`}
                     isIconOnly
                     radius="full"
                     className="bg-white"

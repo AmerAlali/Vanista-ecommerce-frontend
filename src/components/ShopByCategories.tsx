@@ -11,7 +11,7 @@ import { Controller } from "swiper/modules";
 const ShopByCategories = () => {
   const [swiperRef, setSwiperRef] = useState<SwiperClass>();
   return (
-    <div className="max-w-layout px-[25px] mx-auto my-[100px]">
+    <div className="mx-auto my-[100px]">
       <div className="flex flex-row justify-between items-center mb-[50px]">
         <div>
           <h1 className="text-3xl md:text-4xl max-md:max-w-[200px] font-medium">

@@ -13,6 +13,9 @@ const config: Config = {
       maxWidth: {
         layout: "1536px",
       },
+      padding: {
+        layout: "25px",
+      },
       colors: {
         primary: "black",
       },
