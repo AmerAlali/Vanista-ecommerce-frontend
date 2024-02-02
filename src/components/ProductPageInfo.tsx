@@ -1,7 +1,12 @@
 "use client";
 import { Tabs, Tab } from "@nextui-org/react";
+import { FC } from "react";
 
-export default function ProductPageInfo() {
+type productInfoProps = {
+  product: product;
+};
+
+const ProductPageInfo: FC<productInfoProps> = ({ product }) => {
   return (
     <div className="flex w-full flex-col ">
       <h1 className="px-4 text-3xl mb-[20px] font-[600]">
@@ -9,12 +14,7 @@ export default function ProductPageInfo() {
       </h1>
       <Tabs variant="underlined" aria-label="Options" color="primary">
         <Tab key="descriptions" title="Descriptions">
-          <p className="p-2.5 text-[#807D7E]">
-            100% Bio-washed Cotton – makes the fabric extra soft & silky.
-            Flexible ribbed crew neck. Precisely stitched with no pilling & no
-            fading. Provide all-time comfort. Anytime, anywhere. Infinite range
-            of matte-finish HD prints.
-          </p>
+          <p className="p-2.5 text-[#807D7E]">{product.description}</p>
         </Tab>
         <Tab key="additional-information" title="Additional Information">
           <p className="p-2.5 text-[#807D7E]">
@@ -36,4 +36,6 @@ export default function ProductPageInfo() {
       </Tabs>
     </div>
   );
-}
+};
+
+export default ProductPageInfo;

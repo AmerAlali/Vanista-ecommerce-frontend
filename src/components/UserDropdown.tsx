@@ -15,7 +15,7 @@ const UserDropdown = () => {
   return (
     <Dropdown backdrop="blur" placement="bottom-end">
       <DropdownTrigger>
-        <button className="flex outline-none border-none items-center justify-center">
+        <button className="flex flex-row outline-none border-none items-center justify-center">
           <PiUserCircleLight size={30} />
         </button>
       </DropdownTrigger>

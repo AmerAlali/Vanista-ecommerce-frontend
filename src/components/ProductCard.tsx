@@ -17,8 +17,8 @@ type ProductCardProps = {
   image: string;
   title: string;
   brand: string;
-  price: string;
-  id: number;
+  price: number;
+  id: string;
 };
 const ProductCard: FC<ProductCardProps> = ({
   image,
@@ -43,9 +43,9 @@ const ProductCard: FC<ProductCardProps> = ({
           width={0}
           priority
           fetchPriority="high"
-          src={`/products/${image}`}
+          src={image}
           sizes={"100vw"}
-          className=" aspect-square object-cover object-center max-h-[400px] max-w-full h-full w-full"
+          className=" aspect-square object-cover object-top max-h-[400px] max-w-full h-full w-full"
           alt="fashion"
         />
         <AnimatePresence>
@@ -68,7 +68,7 @@ const ProductCard: FC<ProductCardProps> = ({
                   </Button>
                   <Button
                     as={Link}
-                    href={`/shop/${title.replaceAll(" ", "-").toLowerCase()}`}
+                    href={`/shop/${id}`}
                     isIconOnly
                     radius="full"
                     className="bg-white"
@@ -99,9 +99,11 @@ const ProductCard: FC<ProductCardProps> = ({
         <p className=" font-bold line-clamp-1">{title}</p>
         <p className="text-gray-500">{brand}</p>
         <p className="font-medium">
-          {price}{" "}
+          {price}
+          {"$ "}
           <span className=" font-light text line-through text-gray-500">
-            ${Number(price.split("$")[1]) - 20}
+            {price + 20}
+            {"$"}
           </span>
         </p>
       </CardFooter>

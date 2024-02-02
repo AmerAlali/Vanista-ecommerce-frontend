@@ -9,7 +9,6 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-  Tooltip,
 } from "@nextui-org/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -17,6 +16,9 @@ import { SlHandbag, SlHeart } from "react-icons/sl";
 import { FiSearch } from "react-icons/fi";
 import { useSession } from "next-auth/react";
 import UserDropdown from "./UserDropdown";
+import { Badge } from "@nextui-org/react";
+import { useCart } from "@/app/(root)/shop/hooks/useCart";
+import CartDropdown from "./CartDropdown";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,6 +35,13 @@ const Header = () => {
     "Help & Feedback",
     "signin",
   ];
+
+  const { data } = useCart();
+
+  const totalCartItems = data?.items.reduce(
+    (total, product) => total + product.quantity,
+    0
+  );
 
   return (
     <Navbar
@@ -90,7 +99,7 @@ const Header = () => {
         </NavbarItem>
         <NavbarItem>
           <Link href="#">
-            <SlHandbag size={24} />
+            {session?.user ? <CartDropdown /> : <SlHandbag size={24} />}
           </Link>
         </NavbarItem>
         <NavbarItem className={`${!session?.user && "max-sm:hidden"}`}>
